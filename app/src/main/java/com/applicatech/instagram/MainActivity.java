@@ -36,6 +36,32 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         //QueryPost();
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String description = etDescription.getText().toString();
+                ParseUser user = ParseUser.getCurrentUser();
+                savePost(description, user);
+            }
+        });
+    }
+
+    private void savePost(String description, ParseUser parseUser) {
+        Post post = new Post();
+        post.setDescrpition(description);
+        post.setUser(parseUser);
+        // post.setImage();
+        post.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null) {
+                Log.d(TAG, "Error while saving");
+                e.printStackTrace();
+                return;
+                } Log.d(TAG, "Success!!");
+                etDescription.setText("");
+            }
+        });
     }
 
     private void QueryPost() {
