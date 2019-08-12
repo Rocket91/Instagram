@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/relativeLayout2"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:background="@drawable/animation_list"
+    >
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView1"
+        android:layout_marginTop="40dp"
+        android:id="@+id/etUserNam">
+
+        <EditText
+            android:id="@+id/etUserName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Enter your username here"
+            android:layout_marginHorizontal="40dp"
+            android:inputType="text"
+            android:layout_below="@id/tvTitle"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/til2"
+        android:layout_below="@id/etUserNam">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/etEmailSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your email here"
+            android:layout_marginHorizontal="40dp"/>
+
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:passwordToggleEnabled="true"
+        android:layout_below="@id/til2"
+        android:layout_marginTop="10dp"
+        >
+
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/etPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password here"
+            android:layout_marginHorizontal="40dp"
+            android:inputType="textPassword"
+            android:layout_marginTop="20dp"
+            />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SignUp"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="30dp"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal"
+        android:text="Instagram"
+        android:textColor="@color/colorInstaBackG"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/colorInstaBackG"
+        android:text="Already have an account? Sign in. "
+        />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up for free"
+        android:layout_below="@id/tvTitle"
+        android:textSize="25sp"
+        android:textColor="@color/colorInstaBackG"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        />
+
+
+</RelativeLayout>
