@@ -49,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                     return;
                 }
-                //TODO: navigate the new activity if the user has signed properly
                 goMainActivity();
             }
         });
