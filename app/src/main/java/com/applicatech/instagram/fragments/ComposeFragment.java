@@ -147,7 +147,7 @@ public class ComposeFragment extends Fragment {
 
     private void savePost(String description, ParseUser parseUser, File photoFile) {
         Post post = new Post();
-        post.setDescrpition(description);
+        post.setDescription(description);
         post.setUser(parseUser);
         post.setImage(new ParseFile(photoFile));
         post.saveInBackground(new SaveCallback() {
@@ -164,15 +164,4 @@ public class ComposeFragment extends Fragment {
         });
     }
 
-    private void QueryPost() {
-        ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
-        postQuery.findInBackground(new FindCallback<Post>() {
-            @Override
-            public void done(List<Post> posts, ParseException e) {
-                for (int i = 0; i < posts.size(); i++){
-                    Log.d(TAG, "post: "+posts.get(i).getDescription());
-                }
-            }
-        });
-    }
 }
