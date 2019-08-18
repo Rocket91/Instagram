@@ -7,7 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
     <FrameLayout
+        android:layout_below="@id/toolbar_main"
         android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:menu="@menu/menu_bottom_navigation"
+        android:background="@color/blue_5"/>
 
 </RelativeLayout>

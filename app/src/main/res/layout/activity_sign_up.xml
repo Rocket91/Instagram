@@ -78,17 +78,13 @@
             />
     </android.support.design.widget.TextInputLayout>
 
-    <TextView
+    <ImageView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:gravity="center_horizontal"
-        android:text="Instagram"
-        android:textColor="@color/colorInstaBackG"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:visibility="visible" />
+        android:src="@drawable/nav_logo_whiteout" />
 
     <TextView
         android:id="@+id/tvSignUp"

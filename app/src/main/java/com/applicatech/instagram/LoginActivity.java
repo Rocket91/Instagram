@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -89,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             public void done(ParseUser user, ParseException e) {
                 if (e != null) {
                     // TODO: better error notifications to users
+                    Toast.makeText(LoginActivity.this, "There is a problem with your username or password, please check them and try again.", Toast.LENGTH_LONG).show();
                     Log.e(TAG, "issue with login");
                     e.printStackTrace();
                     return;
