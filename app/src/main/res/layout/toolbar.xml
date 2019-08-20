@@ -11,6 +11,13 @@
         >
 
         <ImageView
+            android:id="@+id/camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera_shadow_fill"
+            android:onClick="onCameraSelected"/>
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/nav_logo_whiteout"

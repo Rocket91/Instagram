@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
 
-
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         //QueryPost();
-
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -109,4 +107,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+
+
 }

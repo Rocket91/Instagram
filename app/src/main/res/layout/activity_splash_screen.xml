@@ -5,22 +5,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen">
+    tools:context=".SplashScreen"
+    android:background="@color/blue_1">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
         tools:srcCompat="@drawable/icon"
-        android:layout_centerInParent="true"/>
+        tools:visibility="visible"
+        android:contentDescription="TODO" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:srcCompat="@drawable/nav_logo_whiteout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="50dp"
+        android:visibility="visible"
+        tools:srcCompat="@drawable/nav_logo_whiteout"
+        tools:visibility="visible"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/textView"
