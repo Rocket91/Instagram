@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     public void onLogOut(MenuItem item) {
         Toast.makeText(this, "Successfully Log out", Toast.LENGTH_SHORT).show();
         ParseUser.logOut();
-        ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+       // ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
 
         Intent i = new Intent(this, LoginActivity.class);
         startActivity(i);

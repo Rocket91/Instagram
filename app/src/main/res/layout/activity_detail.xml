@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+
+
+    <TextView
+        android:id="@+id/tvUsername2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Yvenson Jean-Charles"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/ivPostImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/tvUsername2"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/imageButtonLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ufi_heart"
+        android:layout_below="@id/tvCreatedAt"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ufi_comment"
+        android:layout_below="@id/tvCreatedAt"
+        android:layout_toRightOf="@id/imageButtonLike"
+        android:layout_marginLeft="5dp"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonDM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ufi_new_direct"
+        android:layout_below="@id/tvCreatedAt"
+        android:layout_toRightOf="@id/imageButtonComment"
+        android:layout_marginLeft="5dp"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonSave2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ufi_save_active"
+        android:layout_below="@id/tvCreatedAt"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"/>
+
+    <ImageButton
+        android:id="@+id/imageButtonMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ufi_more"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:id="@+id/tvCreatedAt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:text="created at "
+        android:layout_below="@id/tvDescription2"/>
+
+    <TextView
+        android:id="@+id/tvDescription2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="c'est ma photo."
+        android:layout_below="@id/ivPostImage"/>
+</RelativeLayout>

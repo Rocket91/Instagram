@@ -1,16 +1,21 @@
 package com.applicatech.instagram;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -43,20 +48,32 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         return posts.size();
     }
 
+    public void clear() {
+        posts.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addPosts(List<Post> postList){
+        posts.addAll(postList);
+        notifyDataSetChanged();
+    }
+
     class  ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvHandle;
         private ImageView ivImage;
         private TextView tvDescription;
+        private RelativeLayout container;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvHandle = itemView.findViewById(R.id.tvHandle);
             ivImage = itemView.findViewById(R.id.ivImage);
-            tvDescription = itemView.findViewById(R.id.tvDescription);
+            tvDescription = itemView.findViewById(R.id.tvDescription2);
+            container = itemView.findViewById(R.id.container);
         }
 
-        public void bind(Post post) {
+        public void bind(final Post post) {
             // TODO : bind the view elements to the posts
             tvHandle.setText(post.getUser().getUsername());
             ParseFile image = post.getImage();
@@ -64,6 +81,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 Glide.with(context).load(image.getUrl()).into(ivImage);
             }
             tvDescription.setText(post.getDescription());
+
+            container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, DetailActivity.class);
+                    i.putExtra("post", Parcels.wrap(post));
+                    context.startActivity(i);
+                }
+            });
         }
     }
 }

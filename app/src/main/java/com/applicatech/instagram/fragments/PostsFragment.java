@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -29,6 +30,7 @@ public class PostsFragment extends Fragment {
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> mPosts;
+    protected SwipeRefreshLayout swipeContainer;
 
     // on create view to inflate the view
 
@@ -42,6 +44,14 @@ public class PostsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
        rvPosts = view.findViewById(R.id.rvPosts);
+        swipeContainer = view.findViewById(R.id.swipeContainer);
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+
+                android.R.color.holo_green_light,
+
+                android.R.color.holo_orange_light,
+
+                android.R.color.holo_red_light);
 
         // create the data source
         mPosts = new ArrayList<>();
@@ -54,11 +64,18 @@ public class PostsFragment extends Fragment {
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         QueryPost();
 
-
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.d(TAG, "content is being refreshed");
+                QueryPost();
+            }
+        });
     }
 
     protected void QueryPost() {
-        ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
+        final List<Post> postsToAdd = new ArrayList<>();
+        final ParseQuery<Post> postQuery = new ParseQuery<Post>(Post.class);
         postQuery.include(Post.KEY_USER);
         postQuery.setLimit(20);
         postQuery.addDescendingOrder(Post.KEY_CREATED_AT);
@@ -70,8 +87,13 @@ public class PostsFragment extends Fragment {
                     e.printStackTrace();
                     return;
                 }
-                mPosts.addAll(posts);
+
+                postsToAdd.addAll(posts);
+                //mPosts.addAll(posts);
+                adapter.clear();
+                adapter.addPosts(postsToAdd);
                 adapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
 
                 for (int i = 0; i < posts.size(); i++){
                     Log.d(TAG, "post: "+posts.get(i).getDescription());
